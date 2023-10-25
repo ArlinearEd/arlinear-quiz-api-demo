@@ -29,3 +29,7 @@ body {
 button.MuiButton-contained{
   background-color: #1976d2;
 }
+
+#ArlinearQuizComponent .modalWrapper .buttonWrapper button.button-blue{
+  display: none;
+}

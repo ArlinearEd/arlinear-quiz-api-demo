@@ -79,9 +79,12 @@ export default function QuizPage({ quizId = null }) {
 
         {quiz && tab == 'json data' &&
         (<p>
+            {`{`}<br />
             title: {quiz.title}, <br />
-            quizId: {quiz.quizId}, <br />
-            questions: {JSON.stringify(quiz.questions)}, <br />
+            quizId: "{quiz.quizId}"", <br />
+            questions: <br />
+                {JSON.stringify(quiz.questions, null, 2)}<br />
+            {`}`}
         </p>)
         }
 
