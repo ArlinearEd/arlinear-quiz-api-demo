@@ -71,6 +71,7 @@ export default function QuizPage({ quizId = null }) {
             <ArlinearQuizWithResult 
                 key={quizId}
                 quizKey={quizId}
+                questionsPerPageOverride={100}
                 onSubmit={() => {}}
                 onTryAgain={ () => {} } 
             />
