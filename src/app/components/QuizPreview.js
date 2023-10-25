@@ -1,3 +1,4 @@
+"use-client";
 import ArticleIcon from '@mui/icons-material/Article';
 import React, { useState, useEffect } from 'react';
 import Button from '@mui/material/Button';
@@ -68,11 +69,9 @@ export default function QuizPage({ quizId = null }) {
         {quiz && tab == 'preview' &&
         (
             <ArlinearQuizWithResult 
-                quizId={quizId}
-                apiRoot="https://api.arlinear.com/functions/v1"
-                onSubmit={(data) => {
-                    console.log(data);
-                }}
+                key={quizId}
+                quizKey={quizId}
+                onSubmit={() => {}}
                 onTryAgain={ () => {} } 
             />
         )
