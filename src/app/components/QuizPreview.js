@@ -1,11 +1,6 @@
-import { useRouter } from 'next/router'
-
 import ArticleIcon from '@mui/icons-material/Article';
-
 import React, { useState, useEffect } from 'react';
-
 import Button from '@mui/material/Button';
-
 import { ArlinearQuizWithResult } from "@arlinear/quiz-react";
 import "@arlinear/quiz-react/dist/public/style.css";
  
