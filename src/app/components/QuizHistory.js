@@ -42,11 +42,11 @@ export default function QuizHistory() {
                         <h6>
                             {JSON.stringify(JSON.parse(quiz.title))}
                         </h6>
-                        <p className='text-gray-500'>
+                        <p className='text-gray-500 grow'>
                             ({JSON.stringify(quiz.questions.length)} questions)
                         </p>
                         <Button 
-                            className='text-center ml-auto'
+                            className='text-center'
                             onClick={() => {
 
                                 // select quiz
