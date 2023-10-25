@@ -38,18 +38,13 @@ export default function QuizHistory() {
             <div className="flex flex-col gap-3">
                 {history.reverse().map((quiz, index) => (
                     <div className="flex items-center gap-3" key={index}>
-                        <a  className="flex items-center gap-3" href={`/quiz/${quiz.quizId}`} target='_blank'>
-                          <ArticleIcon />
-
-                            <h6>
-                                {JSON.stringify(JSON.parse(quiz.title))}
-                            </h6>
-                            <p className='text-gray-500'>
-                                ({JSON.stringify(quiz.questions.length)} questions)
-                            </p>
-    
-                        </a>
-                        
+                        <ArticleIcon />
+                        <h6>
+                            {JSON.stringify(JSON.parse(quiz.title))}
+                        </h6>
+                        <p className='text-gray-500'>
+                            ({JSON.stringify(quiz.questions.length)} questions)
+                        </p>
                         <Button 
                             className='text-center ml-auto'
                             onClick={() => {
