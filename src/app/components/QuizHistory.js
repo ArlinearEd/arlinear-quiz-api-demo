@@ -2,10 +2,12 @@
 import React, { useState, useEffect } from 'react';
 import Button from '@mui/material/Button';
 import ArticleIcon from '@mui/icons-material/Article';
+import QuizPreview from './QuizPreview';
 
 export default function QuizHistory() {
 
     const [history, setHistory] = useState([]);
+    const [selectedQuizId, setSelectedQuizId] = useState(null);
 
     // update history when localStorage history changes
     useEffect(() => {
@@ -48,20 +50,29 @@ export default function QuizHistory() {
     
                         </a>
                         
-                        <Button component="a" href={`/quiz/${quiz.quizId}`} target='_blank' variant="" className='text-center ml-auto'>
+                        <Button 
+                            className='text-center ml-auto'
+                            onClick={() => {
+
+                                // select quiz
+                                setSelectedQuizId(quiz.quizId);
+
+                                // scroll to #QuizPreview
+                                const quizPreview = document.getElementById("quizPreview");
+                                quizPreview.scrollIntoView({ behavior: 'smooth' });
+                            }}
+                        >
                             View Quiz
                         </Button>
-
-                        <Button className='text-center text-black' onClick={
-                            () => {
-                                navigator.clipboard.writeText(quiz.quizId);
-                            }
-                        }>
-                            Copy Quiz ID
-                        </Button> 
                     </div>
                 ))}
             </div>
+
+            {/* Selected Quiz */}
+            <div id="quizPreview" className={ selectedQuizId ? '' : 'opacity-0'}> 
+                <QuizPreview quizId={selectedQuizId}/>
+            </div>
+            
         </div>
     )
 }
