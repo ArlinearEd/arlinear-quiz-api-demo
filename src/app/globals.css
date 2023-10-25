@@ -17,11 +17,15 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
+  color: #444444;
   background: linear-gradient(
       to bottom,
       transparent,
-      rgb(var(--background-end-rgb))
+      #ffffff
     )
-    rgb(var(--background-start-rgb));
+    #fafafa;
+}
+
+button.MuiButton-contained{
+  background-color: #1976d2;
 }

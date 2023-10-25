@@ -9,9 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@arlinear/quiz-react": "^1.0.38",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.14.14",
+    "@mui/material": "^5.14.14",
+    "next": "13.5.5",
     "react": "^18",
-    "react-dom": "^18",
-    "next": "13.5.6"
+    "react-dom": "^18"
   },
   "devDependencies": {
     "autoprefixer": "^10",
