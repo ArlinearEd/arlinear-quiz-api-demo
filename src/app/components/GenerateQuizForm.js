@@ -227,7 +227,7 @@ export default function GenerateQuizForm() {
           />
 
           {error && (
-            <div className="p-3 rounded bg-red-100 text-red-700">
+            <div className="p-3 font-bold rounded bg-red-100 text-red-800">
               Error: {JSON.stringify(error)}
             </div>
           )}
