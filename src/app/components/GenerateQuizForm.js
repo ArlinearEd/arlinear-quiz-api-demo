@@ -8,6 +8,7 @@ import Button from '@mui/material/Button';
 export default function GenerateQuizForm() {
 
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   // States for the form inputs
   const [subject, setSubject] = useState(null);
@@ -58,6 +59,12 @@ export default function GenerateQuizForm() {
     return obj;
 }
 
+  const handleError = (error) => {  
+    console.error("Error generating quiz:", error);
+    setError(error);
+    setLoading(false);
+  }
+
   const submit = async () => {
 
       setLoading(true);
@@ -88,7 +95,13 @@ export default function GenerateQuizForm() {
       })
         .then(response => response.json())
         .then(data => {
+
           console.log(data);
+
+          if (data.error) {
+            handleError(data.error);
+            return;
+          }
 
           const quizzes = data.quizzes;
 
@@ -97,14 +110,16 @@ export default function GenerateQuizForm() {
           quizHistory.push(quizzes[0]);
           localStorage.setItem("quizHistory", JSON.stringify(quizHistory));
           
+          setError(null);
           setLoading(false);
         })
         .catch(error => {
-          console.error("Error fetching data:", error);
-          setLoading(false);
+          handleError(error);
         });
 
-      console.log(response);
+      if ( response ) {
+        console.log(response);
+      }
         
   };
 
@@ -210,6 +225,12 @@ export default function GenerateQuizForm() {
               setInstructions(event.target.value);
             }}
           />
+
+          {error && (
+            <div className="p-3 rounded bg-red-100 text-red-700">
+              Error: {JSON.stringify(error)}
+            </div>
+          )}
 
           <Button component="label" variant="contained" onClick={submit}>
             {loading ? 
