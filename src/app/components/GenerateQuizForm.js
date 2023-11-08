@@ -45,9 +45,21 @@ export default function GenerateQuizForm() {
   const [fileURL, setFileURL] = useState('');
 
   const [uploadedFile, setUploadedFile] = useState(null);
+  const [fileError, setFileError] = useState(null);
+
   const handleFileChange = (e) => {
+
+    setFileError(null);
+
     if (e.target.files && e.target.files[0]) {
-      setUploadedFile(e.target.files[0]);
+
+      // check if file is a pdf
+      if (e.target.files[0].type !== "application/pdf") {
+        setFileError("File must be a pdf.");
+        return;
+      }else{
+        setUploadedFile(e.target.files[0]);
+      }
     }
   };
 
@@ -200,17 +212,32 @@ export default function GenerateQuizForm() {
             <div className="flex flex-row items-center gap-3">
 
               {/* Upload File */}
-              {/* <Button component="label" variant="contained" className='w-32 text-center'>
-                Upload file
-                <input 
-                  type="file" 
-                  style={{ opacity: '0', position: 'absolute', zIndex: "-99" }} 
-                  onChange={handleFileChange}
-                />
-              </Button>
-              {uploadedFile ? `(${uploadedFile.name})` : ""}
+              <div className='flex flex-col gap-2'>
+                <Button component="label" variant="contained" className='w-36 text-center'>
+                  Upload file
+                  <input 
+                    type="file" 
+                    style={{ opacity: '0', position: 'absolute', zIndex: "-99" }} 
+                    accept="application/pdf"
+                    onChange={handleFileChange}
+                  />
+                </Button>
+                  
+                {/* Uploaded File Name */}
+                {uploadedFile && !fileError && (
+                  <span className='p-2 rounded bg-green-100 text-green-800 text-xs text-center'>
+                    {uploadedFile.name}
+                  </span>
+                )}
+                
 
-              <span className='text-center text-gray-500 text-sm h-fit'>Or</span> */}
+                {/* Uploaded File Error */}
+                {fileError && !uploadedFile && (
+                  <span className='p-2 rounded bg-red-100 text-red-800 text-xs text-center'>{fileError}</span>
+                )}
+              </div>
+
+              <span className='text-center text-gray-500 text-sm h-fit'>Or</span>
 
               {/* File URL */}
               <TextField className='w-full' label="File Link" variant="outlined" type="url" onChange={(e) => setFileURL(e.target.value)}/>
@@ -227,7 +254,7 @@ export default function GenerateQuizForm() {
           />
 
           {error && (
-            <div className="p-3 font-bold rounded bg-red-100 text-red-800">
+            <div className="p-3 rounded bg-red-100 text-red-800">
               Error: {JSON.stringify(error)}
             </div>
           )}

@@ -40,7 +40,7 @@ export default function QuizHistory() {
                     <div className="flex items-center gap-3" key={index}>
                         <ArticleIcon />
                         <h6>
-                            {JSON.stringify(JSON.parse(quiz.title))}
+                            { index + 1 }. {JSON.stringify(JSON.parse(quiz.title))}
                         </h6>
                         <p className='text-gray-500 grow'>
                             ({JSON.stringify(quiz.questions.length)} questions)
