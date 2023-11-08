@@ -116,9 +116,11 @@ export default function GenerateQuizForm() {
           }
 
           if(!data.quizzes) {
+
             handleError("Error: No quizzes generated. Please try again.");
             return;
           } else {
+            
             const quizzes = data.quizzes;
 
             // add quiz to history in local storage
