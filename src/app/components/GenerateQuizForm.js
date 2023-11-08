@@ -115,12 +115,17 @@ export default function GenerateQuizForm() {
             return;
           }
 
-          const quizzes = data.quizzes;
+          if(!data.quizzes) {
+            handleError("Error: No quizzes generated. Please try again.");
+            return;
+          } else {
+            const quizzes = data.quizzes;
 
-          // add quiz to history in local storage
-          const quizHistory = JSON.parse(localStorage.getItem("quizHistory")) || [];
-          quizHistory.push(quizzes[0]);
-          localStorage.setItem("quizHistory", JSON.stringify(quizHistory));
+            // add quiz to history in local storage
+            const quizHistory = JSON.parse(localStorage.getItem("quizHistory")) || [];
+            quizHistory.push(quizzes[0]);
+            localStorage.setItem("quizHistory", JSON.stringify(quizHistory));
+          }
           
           setError(null);
           setLoading(false);
