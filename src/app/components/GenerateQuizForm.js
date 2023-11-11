@@ -64,7 +64,6 @@ export default function GenerateQuizForm() {
       } else {
         setUploadedFile(e.target.files[0]);
       }
-      
   };
 
   function formDataToObject(formData) {
