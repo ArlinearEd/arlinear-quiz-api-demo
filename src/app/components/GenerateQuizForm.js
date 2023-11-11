@@ -48,23 +48,22 @@ export default function GenerateQuizForm() {
   const [fileError, setFileError] = useState(null);
 
   const handleFileChange = (e) => {
+      setFileError(null);
 
-    setFileError(null);
-
-    if (e.target.files && e.target.files[0]) {
-
-      // check file type
-      if (
-        e.target.files[0].type !== "application/pdf" &&
-        e.target.files[0].type !== "image/png" &&
-        e.target.files[0].type !== "image/jpeg"
-      ) {
-        setFileError("File must be a PDF, PNG, or JPG.");
-        return;
-      } else {
-        setUploadedFile(e.target.files[0]);
+      if (e.target.files && e.target.files[0]) {
+          // check file type
+          if (
+              e.target.files[0].type !== "application/pdf" &&
+              e.target.files[0].type !== "image/png" &&
+              e.target.files[0].type !== "image/jpeg"
+          ) {
+              setFileError("File must be a PDF, PNG, or JPG.");
+              return;
+          } else {
+              setUploadedFile(e.target.files[0]);
+          }
       }
-  };
+  }
 
   function formDataToObject(formData) {
     let obj = {};
