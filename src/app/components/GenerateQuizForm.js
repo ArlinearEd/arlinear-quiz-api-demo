@@ -225,7 +225,7 @@ export default function GenerateQuizForm() {
                   <input 
                     type="file" 
                     style={{ opacity: '0', position: 'absolute', zIndex: "-99" }} 
-                    accept="application/pdf"
+                    accept="application/pdf, image/png, image/jpeg"
                     onChange={handleFileChange}
                   />
                 </Button>
