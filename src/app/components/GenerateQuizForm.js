@@ -98,7 +98,7 @@ export default function GenerateQuizForm() {
       console.log(formDataToObject(formData));
       console.log([uploadedFile])
       
-      const response = await fetch('https://api.arlinear.com/functions/v1/generate-quiz', {
+      const response = await fetch('https://api.arlinear.com/functions/v1/generate-quiz-v', {
         method: 'POST',
         headers: {
             Authorization: "b4ae786a-62f5-4924-8d00-7aeae8683e4c"
