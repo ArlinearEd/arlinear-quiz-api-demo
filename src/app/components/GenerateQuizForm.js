@@ -94,7 +94,7 @@ export default function GenerateQuizForm() {
       }
 
       if (uploadedFile) {
-        formData.append('files', [uploadedFile]);
+        formData.append('files', uploadedFile);
       }
 
       console.log(formDataToObject(formData));
