@@ -53,14 +53,18 @@ export default function GenerateQuizForm() {
 
     if (e.target.files && e.target.files[0]) {
 
-      // check if file is a pdf
-      if (e.target.files[0].type !== "application/pdf") {
-        setFileError("File must be a pdf.");
+      // check file type
+      if (
+        e.target.files[0].type !== "application/pdf" &&
+        e.target.files[0].type !== "image/png" &&
+        e.target.files[0].type !== "image/jpeg"
+      ) {
+        setFileError("File must be a PDF, PNG, or JPG.");
         return;
-      }else{
+      } else {
         setUploadedFile(e.target.files[0]);
       }
-    }
+      
   };
 
   function formDataToObject(formData) {
