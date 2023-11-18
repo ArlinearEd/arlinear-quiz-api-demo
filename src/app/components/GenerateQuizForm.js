@@ -152,7 +152,7 @@ export default function GenerateQuizForm() {
         </div>
         <hr className='mb-3'></hr>
 
-        <div className="grid grid-cols-2 gap-3">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
 
           {/* Subject */}
           <Autocomplete
@@ -214,8 +214,7 @@ export default function GenerateQuizForm() {
 
           <div>
 
-              <label className='text-gray-500 text-sm'>Generate Quiz From a PDF: </label>
-
+            <label className='block text-gray-500 text-sm mb-2'>Generate Quiz From a PDF: </label>
             <div className="flex flex-row items-center gap-3">
 
               {/* Upload File */}

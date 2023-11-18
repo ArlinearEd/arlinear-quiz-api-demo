@@ -5,7 +5,7 @@ import QuizHistory from '../app/components/QuizHistory';
 
 export default function Home() {
   return (
-    <main className="max-w-[900px] mx-auto p-24">
+    <main className="max-w-[900px] mx-auto py-24 px-2 md:px-24">
 
     <div className="flex flex-col items-center gap-3">
       <GenerateQuizForm />
