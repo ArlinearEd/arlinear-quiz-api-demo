@@ -1,4 +1,4 @@
-# Arlinear Quiz API Demo 
+# Arlinear Quiz API Demo [Click here to go to demo ✏](https://github.com/ArlinearEd/arlinear-quiz-api-demo/tree/main)
 AI Quiz Generator is an interactive web application built using Next.js, designed to create customized quizzes. It leverages the powerful quiz API provided by arlinear.com, offering a wide range of features including quiz generation based on subject, language, and uploaded files.
 - **Dynamic Quiz Generation**: Create quizzes on various subjects and languages.
 - **File Upload Support**: Ability to generate quizzes from uploaded files.
