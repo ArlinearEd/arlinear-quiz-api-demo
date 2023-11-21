@@ -48,20 +48,22 @@ export default function GenerateQuizForm() {
   const [fileError, setFileError] = useState(null);
 
   const handleFileChange = (e) => {
+      setFileError(null);
 
-    setFileError(null);
-
-    if (e.target.files && e.target.files[0]) {
-
-      // check if file is a pdf
-      if (e.target.files[0].type !== "application/pdf") {
-        setFileError("File must be a pdf.");
-        return;
-      }else{
-        setUploadedFile(e.target.files[0]);
+      if (e.target.files && e.target.files[0]) {
+          // check file type
+          if (
+              e.target.files[0].type !== "application/pdf" &&
+              e.target.files[0].type !== "image/png" &&
+              e.target.files[0].type !== "image/jpeg"
+          ) {
+              setFileError("File must be a PDF, PNG, or JPG.");
+              return;
+          } else {
+              setUploadedFile(e.target.files[0]);
+          }
       }
-    }
-  };
+  }
 
   function formDataToObject(formData) {
     let obj = {};
@@ -92,13 +94,13 @@ export default function GenerateQuizForm() {
       }
 
       if (uploadedFile) {
-        formData.append('files', [uploadedFile]);
+        formData.append('files', uploadedFile);
       }
 
       console.log(formDataToObject(formData));
       console.log([uploadedFile])
       
-      const response = await fetch('https://api.arlinear.com/functions/v1/generate-quiz', {
+      const response = await fetch('https://api.arlinear.com/functions/v1/generate-quiz-v', {
         method: 'POST',
         headers: {
             Authorization: "b4ae786a-62f5-4924-8d00-7aeae8683e4c"
@@ -224,7 +226,7 @@ export default function GenerateQuizForm() {
                   <input 
                     type="file" 
                     style={{ opacity: '0', position: 'absolute', zIndex: "-99" }} 
-                    accept="application/pdf"
+                    accept="application/pdf, image/png, image/jpeg"
                     onChange={handleFileChange}
                   />
                 </Button>
