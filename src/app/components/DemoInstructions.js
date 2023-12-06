@@ -20,7 +20,7 @@ export default function DemoInstructions() {
     const instructions = [
         {
             title: '1. Generate a Quiz',
-            body: ['Click the "Generate Quiz" button to generate a quiz. You will be redirected to the quiz page.', 'Pro tip: You can upload a PDF file (i.e a lesson, textbook, short story, etc)'],
+            body: ['On any subject, specify what kind of questions you want in the form below. Be as creative as you like.', 'Pro tip: You can upload a PDF file (i.e a lesson, textbook, short story, etc)'],
             icon: '/icons/quiz.png'
         },
         {
