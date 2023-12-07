@@ -165,7 +165,7 @@ export default function GenerateQuizForm() {
               onInputChange={(event, newInputValue) => {
                 setSubjectInput(newInputValue);
               }}
-              options={["Math", "Science", "Language", "History", "Geography", "Art"]}
+              options={["Math", "Science", "Computer Science", "Language", "History", "Geography", "Art"]}
               renderInput={(params) => <TextField {...params} label="Subject" />}
             />
 
