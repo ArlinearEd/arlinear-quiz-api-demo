@@ -1,7 +1,6 @@
 "use-client";
 import ArticleIcon from '@mui/icons-material/Article';
 import React, { useState, useEffect } from 'react';
-import Button from '@mui/material/Button';
 import { ArlinearQuizWithResult } from "@arlinear/quiz-react";
 import "@arlinear/quiz-react/dist/public/style.css";
  
@@ -9,9 +8,6 @@ export default function QuizPage({ quizId = null }) {
 
   const [quiz, setQuiz] = useState(null);
   const [loading, setLoading] = useState(false);
-
-  const [tab, setTab] = useState('preview'); // preview, attempts, raw quiz data
-
 
   useEffect(() => {
 
@@ -52,21 +48,13 @@ export default function QuizPage({ quizId = null }) {
     <div className="flex flex-col gap-3 py-24">
 
         <div className="flex justify-center items-center gap-3">
-        <ArticleIcon />
-        <h1 className='text-lg'>{ quiz ? quiz.title : "Loading..."}</h1>
+          <ArticleIcon />
+          <h1 className='text-lg'>{ quiz ? quiz.title : "Loading..."}</h1>
         </div>
         
         <hr className='mb-3'></hr>
 
-        <div className="flex justify-center items-center gap-3">
-        {["preview","json data"].map((tabName, index) => (
-            <Button key={index} variant={tab == tabName ? "contained" : "outlined"} onClick={() => setTab(tabName)}>
-                {tabName}
-            </Button>
-        ))}
-        </div>
-
-        {quiz && tab == 'preview' &&
+        {quiz &&
         (
             <ArlinearQuizWithResult 
                 key={quizId}
@@ -77,18 +65,6 @@ export default function QuizPage({ quizId = null }) {
             />
         )
         }
-
-        {quiz && tab == 'json data' &&
-        (<p>
-            {`{`}<br />
-            title: {quiz.title}, <br />
-            quizId: "{quiz.quizId}"", <br />
-            questions: <br />
-                {JSON.stringify(quiz.questions, null, 2)}<br />
-            {`}`}
-        </p>)
-        }
-
     </div>
   )
 }
