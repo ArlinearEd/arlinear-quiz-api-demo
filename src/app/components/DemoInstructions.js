@@ -8,7 +8,7 @@ function Intruction({title, body, icon}){
             <h3 className='text-md font-bold'>{title}</h3>
             <div className='flex flex-col gap-2'>
                 {body.map((item, index) => (
-                    <p key={index} className='opacity-80 text-sm even:font-bold'>{item}</p>
+                    <p key={index} className='opacity-80 text-sm even:leading-6' dangerouslySetInnerHTML={{__html: item}}></p>
                 ))}
             </div>
         </div>
@@ -20,7 +20,7 @@ export default function DemoInstructions() {
     const instructions = [
         {
             title: '1. Generate a Quiz',
-            body: ['On any subject, specify what kind of questions you want in the form below. Be as creative as you like.', 'Pro tip: You can upload a PDF file (i.e a lesson, textbook, short story, etc)'],
+            body: ['On any subject... Fill the form to create a quiz you would like.', '<span class="font-bold">Example:</span> <br> Subject: "Math", <br>  Grade Level: "Grade 6", <br>  What is your quiz about?:  "A quiz on adding/subtracting fractions. Use cooking metaphors so my students can learn the concepts easily."', '<span class="font-bold">Pro tip: You can upload a PDF file (i.e a lesson, textbook, short story, etc)</span>'],
             icon: '/icons/quiz.png'
         },
         {
